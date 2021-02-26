@@ -1,0 +1,3 @@
+# guitar-shack
+
+For those who are about to rock...
