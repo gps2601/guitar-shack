@@ -5,13 +5,13 @@ import retrofit2.Response;
 
 import java.io.IOException;
 
-public class WebRequester implements Requester {
+public class WebRequester<T> implements Requester<T> {
     public WebRequester() {
     }
 
     @Override
-    public TotalSales execute(Call<TotalSales> totalSalesCall) throws IOException {
-        Response<TotalSales> execute = totalSalesCall.execute();
+    public T execute(Call<T> call) throws IOException {
+        Response<T> execute = call.execute();
         return execute.body();
     }
 }

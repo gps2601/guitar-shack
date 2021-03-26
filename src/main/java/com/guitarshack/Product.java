@@ -1,31 +1,35 @@
 package com.guitarshack;
 
 public class Product {
-    private final int productId;
-    private final String description;
-    private final int stock;
+    public int id;
+    public String description;
+    public int stock;
+    public int rackspace;
+    public int minOrder;
+    public int leadTime;
+    public int price;
+    public String make;
+    public String range;
+    public String model;
 
-    private final int rackSpace;
+    public Product() {
+    }
 
-    private final int minimumOrder;
-
-    private final int leadTime;
-
-    public Product(int productId, String description, int stock, int rackSpace, int minimumOrder, int leadTime) {
-        this.productId = productId;
+    public Product(int id, String description, int stock, int rackspace, int minOrder, int leadTime) {
+        this.id = id;
         this.description = description;
         this.stock = stock;
-        this.rackSpace = rackSpace;
-        this.minimumOrder = minimumOrder;
+        this.rackspace = rackspace;
+        this.minOrder = minOrder;
         this.leadTime = leadTime;
     }
 
     String formatNotificationFor() {
         return String.format("Please reorder product %s (%s), Minimum order: %d, Rack space: %d",
-                productId,
+                id,
                 description,
-                minimumOrder,
-                rackSpace
+                minOrder,
+                rackspace
         );
     }
 
@@ -33,8 +37,8 @@ public class Product {
         return stock;
     }
 
-    public int getProductId() {
-        return productId;
+    public int getId() {
+        return id;
     }
 
     public int getLeadTime() {

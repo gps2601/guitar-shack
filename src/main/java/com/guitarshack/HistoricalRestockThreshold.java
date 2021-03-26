@@ -22,11 +22,11 @@ public class HistoricalRestockThreshold implements RestockThreshold {
         int inclusiveLeadTime = leadTime - 1;
         salesPeriod.setHistoricalPeriod(date, LAST_YEAR, SAME_DATE, inclusiveLeadTime);
 
-        int salesLastYear = historicalSales.total(product.getProductId(), salesPeriod.getStartDate(), salesPeriod.getEndDate());
+        int salesLastYear = historicalSales.total(product.getId(), salesPeriod.getStartDate(), salesPeriod.getEndDate());
 
         if (salesLastYear == 0) {
             salesPeriod.setHistoricalPeriod(date, THIS_YEAR, -leadTime, inclusiveLeadTime);
-            return historicalSales.total(product.getProductId(), salesPeriod.getStartDate(), salesPeriod.getEndDate());
+            return historicalSales.total(product.getId(), salesPeriod.getStartDate(), salesPeriod.getEndDate());
         } else {
             return salesLastYear;
         }

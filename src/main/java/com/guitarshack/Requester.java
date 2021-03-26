@@ -4,6 +4,6 @@ import retrofit2.Call;
 
 import java.io.IOException;
 
-public interface Requester {
-    TotalSales execute(Call<TotalSales> totalSalesCall) throws IOException;
+public interface Requester<T> {
+    T execute(Call<T> call) throws IOException;
 }
