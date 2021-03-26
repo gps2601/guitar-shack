@@ -1,5 +1,6 @@
 package com.guitarshack;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Calendar;
@@ -13,7 +14,12 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 class RestockThresholdTest {
-    private final DateFactory dateFactory = new DateFactory();
+    private DateFactory dateFactory = null;
+
+    @BeforeEach
+    void setUp() {
+        dateFactory = new DateFactory();
+    }
 
     @Test
     void returnsTotalNumberOfHistoricalSalesInLeadTime() {

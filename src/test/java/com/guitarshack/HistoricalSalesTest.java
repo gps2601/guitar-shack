@@ -15,7 +15,7 @@ public class HistoricalSalesTest {
         Date startDate = dateFactory.getDate(2019, Calendar.JULY, 17);
         Date endDate = dateFactory.getDate(2019, Calendar.JULY, 27);
 
-        HistoricalSales salesAPI = new HistoricalSalesAPI();
+        HistoricalSales salesAPI = new HistoricalSalesAPI(new WebRequester());
 
         assertEquals(salesAPI.total(811, startDate, endDate), 20);
     }
