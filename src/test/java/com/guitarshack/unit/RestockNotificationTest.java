@@ -1,5 +1,6 @@
-package com.guitarshack;
+package com.guitarshack.unit;
 
+import com.guitarshack.*;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.*;

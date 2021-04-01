@@ -20,3 +20,19 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+task contractTests(type: Test) {
+    useJUnitPlatform()
+    include "com/guitarshack/contract/*.*"
+}
+
+
+task integrationTests(type: Test) {
+    useJUnitPlatform()
+    include "com/guitarshack/integration/*.*"
+}
+
+task unitTests(type: Test) {
+    useJUnitPlatform()
+    include "com/guitarshack/unit/*.*"
+}

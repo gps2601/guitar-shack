@@ -1,5 +1,8 @@
-package com.guitarshack;
+package com.guitarshack.unit;
 
+import com.guitarshack.Product;
+import com.guitarshack.Requester;
+import com.guitarshack.WarehouseTestBase;
 import retrofit2.Call;
 
 import java.io.IOException;
