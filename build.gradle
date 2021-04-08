@@ -41,9 +41,10 @@ task unitTests(type: Test) {
 
 jar {
     manifest {
-        attributes(
-                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
-                'Main-Class': 'com.guitarshack.Entrypoint'
-        )
+        attributes "Main-Class": 'com.guitarshack.Entrypoint'
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
