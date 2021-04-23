@@ -8,7 +8,7 @@ public class HistoricalRestockThreshold implements RestockThreshold {
     public static final int THIS_YEAR = 0;
     private final HistoricalSales historicalSales;
     private final Today today;
-    private final SalesPeriod salesPeriod = new SalesPeriod();
+    private final SalesDateRange salesDateRange = new SalesDateRange();
 
     public HistoricalRestockThreshold(HistoricalSales historicalSales, Today today) {
         this.historicalSales = historicalSales;
@@ -20,13 +20,13 @@ public class HistoricalRestockThreshold implements RestockThreshold {
         Date date = today.get();
         int leadTime = product.getLeadTime();
         int inclusiveLeadTime = leadTime - 1;
-        salesPeriod.setHistoricalPeriod(date, LAST_YEAR, SAME_DATE, inclusiveLeadTime);
+        salesDateRange.setRange(date, LAST_YEAR, SAME_DATE, inclusiveLeadTime);
 
-        int salesLastYear = historicalSales.total(product.getId(), salesPeriod.getStartDate(), salesPeriod.getEndDate());
+        int salesLastYear = historicalSales.total(product.getId(), salesDateRange.getStartDate(), salesDateRange.getEndDate());
 
         if (salesLastYear == 0) {
-            salesPeriod.setHistoricalPeriod(date, THIS_YEAR, -leadTime, inclusiveLeadTime);
-            return historicalSales.total(product.getId(), salesPeriod.getStartDate(), salesPeriod.getEndDate());
+            salesDateRange.setRange(date, THIS_YEAR, -leadTime, inclusiveLeadTime);
+            return historicalSales.total(product.getId(), salesDateRange.getStartDate(), salesDateRange.getEndDate());
         } else {
             return salesLastYear;
         }

@@ -6,5 +6,5 @@ import retrofit2.http.Query;
 
 public interface SalesData {
     @GET("sales?action=total")
-    Call<TotalSales> totalSale(@Query("productId") int productId, @Query("startDate") String startDate, @Query("endDate") String endDate);
+    Call<TotalSales> totalSales(@Query("productId") int productId, @Query("startDate") String startDate, @Query("endDate") String endDate);
 }

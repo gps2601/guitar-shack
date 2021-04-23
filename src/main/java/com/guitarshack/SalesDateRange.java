@@ -6,11 +6,11 @@ import java.util.Date;
 import static java.util.Calendar.DATE;
 import static java.util.Calendar.YEAR;
 
-public class SalesPeriod {
+public class SalesDateRange {
     private Date startDate;
     private Date endDate;
 
-    void setHistoricalPeriod(Date date, int yearDiff, int startDateDiff, int endDateDiff) {
+    void setRange(Date date, int yearDiff, int startDateDiff, int endDateDiff) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.add(YEAR, yearDiff);

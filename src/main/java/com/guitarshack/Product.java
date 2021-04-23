@@ -7,13 +7,6 @@ public class Product {
     public int rackspace;
     public int minOrder;
     public int leadTime;
-    public int price;
-    public String make;
-    public String range;
-    public String model;
-
-    public Product() {
-    }
 
     public Product(int id, String description, int stock, int rackspace, int minOrder, int leadTime) {
         this.id = id;
