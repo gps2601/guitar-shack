@@ -2,14 +2,16 @@ package com.guitarshack.unit;
 
 import com.guitarshack.*;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.mockito.Mockito.*;
 
 public class RestockNotificationTest {
 
-    @Test
-    void salesQuantityTakesProductStockBelowThreshold() {
-        int quantitySold = 1;
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2})
+    void salesQuantityTakesProductStockBelowThreshold(int quantitySold) {
         String description = "Fender Deluxe Nashville Telecaster MN in 2 Colour Sunburst";
         int stock = 5;
         int rackSpace = 10;
@@ -47,7 +49,7 @@ public class RestockNotificationTest {
     @Test
     void stockIsAlreadyBelowThreshold() {
         int productId = 449;
-        int stock = 5;
+        int stock = 6;
         int quantitySold = 1;
         ReorderNotifier reorderNotifier = mock(ReorderNotifier.class);
         Product product = new Product(productId, "", stock, 0, 0, 0);

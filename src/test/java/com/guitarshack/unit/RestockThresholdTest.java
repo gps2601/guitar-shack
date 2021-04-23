@@ -33,6 +33,17 @@ class RestockThresholdTest {
     }
 
     @Test
+    void returnsTotalRecentSalesWhenHistoricalIsZero() {
+        HistoricalSales historicalSales = mock(HistoricalSales.class);
+        when(historicalSales.total(anyInt(), any(), any())).thenReturn(0, 5);
+        Product product = new Product(449, "", 0, 0, 0, 21);
+        Today today = () -> new Date();
+        HistoricalRestockThreshold restockThreshold = new HistoricalRestockThreshold(historicalSales, today);
+
+        assertEquals(5, restockThreshold.thresholdFor(product));
+    }
+
+    @Test
     void providesCorrectStartDateWithMoreThanAYearsSales() {
         HistoricalSales historicalSales = mock(HistoricalSales.class);
         when(historicalSales.total(any(Integer.class), any(Date.class), any(Date.class))).thenReturn(1);

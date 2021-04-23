@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'info.solidsoft.pitest' version '1.5.1'
 }
 
 group 'org.example'
@@ -16,6 +17,7 @@ dependencies {
     compile "org.slf4j:slf4j-simple:1.7.30"
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testImplementation 'org.mockito:mockito-core:3.8.0'
+    testImplementation "org.junit.jupiter:junit-jupiter-params:5.7.0"
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
 
@@ -47,4 +49,9 @@ jar {
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
+}
+
+pitest {
+    targetClasses = ['com.guitarshack.*']
+    junit5PluginVersion = '0.12'
 }
