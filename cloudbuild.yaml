@@ -11,7 +11,8 @@ steps:
     args: [ 'push', 'gcr.io/$PROJECT_ID/guitar-shack' ]
   # Deploy container image to Cloud Run
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: [ 'run', 'deploy', 'guitar-shack', '--image', 'gcr.io/$PROJECT_ID/guitar-shack', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated' ]
+    entrypoint: 'bash'
+    args: [ '-c', 'run', 'deploy', 'guitar-shack', '--image', 'gcr.io/$PROJECT_ID/guitar-shack', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated' ]
     secretEnv: ['ACCOUNT_SID', 'AUTH_TOKEN', 'FROM_PHONE_NUMBER', 'TO_PHONE_NUMBER']
 images: ["gcr.io/$PROJECT_ID/guitar-shack"]
 availableSecrets:
