@@ -13,6 +13,7 @@ repositories {
 dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    compile "com.fasterxml.jackson.core:jackson-databind:2.10.3"
     compile 'io.javalin:javalin:3.13.5'
     compile "org.slf4j:slf4j-simple:1.7.30"
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'

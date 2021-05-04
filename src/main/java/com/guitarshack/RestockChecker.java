@@ -15,7 +15,7 @@ public class RestockChecker {
         Product product = warehouse.findProduct(productId);
         int restockThreshold = this.restockThreshold.thresholdFor(product);
         if (needsRestocking(quantitySold, product, restockThreshold) && !alreadyNotified(product, restockThreshold)) {
-            reorderNotifier.send(product.formatNotificationFor());
+            reorderNotifier.send(product.formatNotification());
         }
     }
 

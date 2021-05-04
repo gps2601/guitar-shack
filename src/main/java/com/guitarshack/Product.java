@@ -1,5 +1,7 @@
 package com.guitarshack;
 
+import static java.lang.String.format;
+
 public class Product {
     public int id;
     public String description;
@@ -17,8 +19,8 @@ public class Product {
         this.leadTime = leadTime;
     }
 
-    String formatNotificationFor() {
-        return String.format("Please reorder product %s (%s), Minimum order: %d, Rack space: %d",
+    String formatNotification() {
+        return format("Please reorder product %s (%s), Minimum order: %d, Rack space: %d",
                 id,
                 description,
                 minOrder,

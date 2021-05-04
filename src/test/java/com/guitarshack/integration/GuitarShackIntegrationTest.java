@@ -17,20 +17,7 @@ public class GuitarShackIntegrationTest {
             return dateFactory.getDate(2020, JULY, 17);
         };
 
-        RestockChecker restockChecker = new RestockChecker(
-                reorderNotifier,
-                new GuitarShackWarehouse(
-                        new WebRequester<>(),
-                        "https://6hr1390c1j.execute-api.us-east-2.amazonaws.com/default/"
-                ),
-                new HistoricalRestockThreshold(
-                        new HistoricalSalesAPI(
-                                new WebRequester<>(),
-                                "https://gjtvhjg8e9.execute-api.us-east-2.amazonaws.com/default/"
-                        ),
-                        dateStub
-                )
-        );
+        RestockChecker restockChecker = RestockCheckerBuilder.build(reorderNotifier, dateStub);
 
         restockChecker.onSale(811, 31);
 

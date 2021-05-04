@@ -3,9 +3,9 @@ package com.guitarshack;
 import java.util.Date;
 
 public class HistoricalRestockThreshold implements RestockThreshold {
-    public static final int LAST_YEAR = -1;
-    public static final int SAME_DATE = 0;
-    public static final int THIS_YEAR = 0;
+    private static final int LAST_YEAR = -1;
+    private static final int SAME_DATE = 0;
+    private static final int THIS_YEAR = 0;
     private final HistoricalSales historicalSales;
     private final Today today;
     private final SalesDateRange salesDateRange = new SalesDateRange();

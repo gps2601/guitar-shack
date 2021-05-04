@@ -26,5 +26,4 @@ public class GuitarShackWarehouse implements Warehouse {
         }
         return null;
     }
-
 }
