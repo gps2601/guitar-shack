@@ -8,7 +8,7 @@ public class Entrypoint {
     private static final RestockChecker restockChecker = RestockCheckerBuilder.build(new TwilioReorderNotifier(), Date::new);
 
     public static void main(String[] args) {
-        Javalin app = Javalin.create().start(8080);
+        Javalin app = Javalin.create().start(Integer.parseInt(System.getenv("PORT")));
         app.post("/order", ctx -> {
             Order order = ctx.bodyAsClass(Order.class);
             restockChecker.onSale(order.productId, order.quantitySold);
