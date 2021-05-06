@@ -5,6 +5,6 @@ jdk:
 deploy:
   provider: heroku
   on:
-    all_branches: true
+    branch: main
   api_key:
     secure: f1c2da9f-496b-44a2-9180-187bd92c6ac3
