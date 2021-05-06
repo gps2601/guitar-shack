@@ -1,10 +1,9 @@
 language: java
 jdk:
-  - openjdk11
-
+- openjdk11
 deploy:
   provider: heroku
   on:
     branch: main
   api_key:
-    secure: f1c2da9f-496b-44a2-9180-187bd92c6ac3
+    secure: yJY+TBr2vBGrUOWAZGK6vcx0xnzhgO4LYa050cA6z0ixeffexGyr0NUpoCeEF/rq5nbPua7DW7/R8BcGP2WXGFN83y5yxEkPjvetlQ2D4b2YghLyPtKe6ZpZijSC9vuo26p5gFqUJxBXgoUr1xQAaVIakpVwVDgONUDR9yPiVO4H6dpLbhDgf9V3THiekR5eQHGJa99QpqRwGnU0XGpNdgp13pby9AIxSnFE3pHNnPU65JW6u8BnP1J+flyrQLmTWEz1ySs/whdNJve2JZZttyawP7dWr6CTb65SDN0+DJXYnhbKu+L8KTq1QlRF3V/wG9d5q4v87TUX/EbeU2BUOmP/oUW/o36XFXrjtTS8yuRk6CldUlPGjGJ6t6DAzFKj4JxX19mAlg7K0m4Dxg13TpBbTnt2IEkADZulKaMSd0qSyPxJ402JebEWsbbRJON34qGkigRQ1jzpmSCaYgtjMVkbBHkm1YTYk4QgHmVLQdJ0yzGKU4Z3C+Y9SvMvdvnhzz52b8L+IZK6H7w/Mrr1jQ3Shds8LlUe2FeaLL6xfLCz5jqAtLSwImycNkv34Al+nGH9bySUCEV+nLOiSO3DW6gSG0muQuXDcnudlr+LsMJbQiczsnH0FeXEfqacsfGjENtDy8LovIlw1JGbLW7ZGxZFEWR3B+zgTDKb8v1LBXc=
