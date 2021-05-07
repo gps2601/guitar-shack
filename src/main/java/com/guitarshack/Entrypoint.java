@@ -11,7 +11,7 @@ public class Entrypoint {
         Javalin app = Javalin.create().start(Integer.parseInt(System.getenv("PORT")));
         app.post("/order", ctx -> {
             Order order = ctx.bodyAsClass(Order.class);
-            restockChecker.onSale(order.productId, order.quantitySold);
+            restockChecker.onSale(order);
             ctx.status(204);
         });
     }

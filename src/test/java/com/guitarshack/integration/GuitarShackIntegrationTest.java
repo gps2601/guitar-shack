@@ -19,7 +19,7 @@ public class GuitarShackIntegrationTest {
 
         RestockChecker restockChecker = RestockCheckerBuilder.build(reorderNotifier, dateStub);
 
-        restockChecker.onSale(811, 31);
+        restockChecker.onSale(new Order(811, 31));
 
         verify(reorderNotifier).send(any());
     }

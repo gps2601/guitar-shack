@@ -25,7 +25,7 @@ public class RestockNotificationTest {
         RestockThreshold restockThreshold = product1 -> 4;
 
         RestockChecker restockChecker = new RestockChecker(reorderNotifier, warehouse, restockThreshold);
-        restockChecker.onSale(productId, quantitySold);
+        restockChecker.onSale(new Order(productId, quantitySold));
 
         verify(reorderNotifier).send("Please reorder product 449 (Fender Deluxe Nashville Telecaster MN in 2 Colour Sunburst), Minimum order: 5, Rack space: 10");
     }
@@ -41,7 +41,7 @@ public class RestockNotificationTest {
         RestockThreshold restockThreshold = product1 -> 3;
         RestockChecker restockChecker = new RestockChecker(reorderNotifier, warehouse, restockThreshold);
 
-        restockChecker.onSale(productId, quantitySold);
+        restockChecker.onSale(new Order(productId, quantitySold));
 
         verifyNoInteractions(reorderNotifier);
     }
@@ -57,7 +57,7 @@ public class RestockNotificationTest {
         RestockThreshold restockThreshold = product1 -> 6;
         RestockChecker restockChecker = new RestockChecker(reorderNotifier, warehouse, restockThreshold);
 
-        restockChecker.onSale(productId, quantitySold);
+        restockChecker.onSale(new Order(productId, quantitySold));
 
         verifyNoInteractions(reorderNotifier);
     }

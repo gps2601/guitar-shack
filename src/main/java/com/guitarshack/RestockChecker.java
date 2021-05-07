@@ -11,10 +11,10 @@ public class RestockChecker {
         this.restockThreshold = restockThreshold;
     }
 
-    public void onSale(int productId, int quantitySold) {
-        Product product = warehouse.findProduct(productId);
+    public void onSale(Order order) {
+        Product product = warehouse.findProduct(order.productId);
         int restockThreshold = this.restockThreshold.thresholdFor(product);
-        if (needsRestocking(quantitySold, product, restockThreshold) && !alreadyNotified(product, restockThreshold)) {
+        if (needsRestocking(order.quantitySold, product, restockThreshold) && !alreadyNotified(product, restockThreshold)) {
             reorderNotifier.send(product.formatNotification());
         }
     }
