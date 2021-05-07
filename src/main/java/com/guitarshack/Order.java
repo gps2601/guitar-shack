@@ -8,4 +8,6 @@ public class Order {
         this.productId = productId;
         this.quantitySold = quantitySold;
     }
+
+    public Order() {}
 }
