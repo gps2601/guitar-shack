@@ -1,7 +1,5 @@
 package com.guitarshack;
 
-import java.util.List;
-
 public class RestockChecker {
     private final ReorderNotifier reorderNotifier;
     private final Warehouse warehouse;
@@ -19,10 +17,6 @@ public class RestockChecker {
         if (needsRestocking(order.quantitySold, product, restockThreshold) && !alreadyNotified(product, restockThreshold)) {
             reorderNotifier.send(product.formatNotification());
         }
-    }
-
-    public void onSale(List<Order> orders) {
-        orders.forEach(this::onSale);
     }
 
     private boolean needsRestocking(int quantitySold, Product product, int restockThreshold) {

@@ -3,14 +3,10 @@ package com.guitarshack.integration;
 import com.guitarshack.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
-import java.util.List;
-
 import static java.util.Calendar.JULY;
-import static java.util.List.*;
+import static java.util.List.of;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class GuitarShackIntegrationTest {
     @Test
@@ -22,8 +18,8 @@ public class GuitarShackIntegrationTest {
         };
 
         RestockChecker restockChecker = RestockCheckerBuilder.build(reorderNotifier, dateStub);
-
-        restockChecker.onSale(of(new Order(811, 31)));
+        OrderHandler orderHandler = new OrderHandler(restockChecker);
+        orderHandler.onSale(of(new Order(811, 31)));
 
         verify(reorderNotifier).send(any());
     }
